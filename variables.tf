@@ -3,8 +3,13 @@ variable "cidr_block" {
   type        = string
 }
 
-variable "subnets" {
-  description = "A list of subnet CIDR blocks"
+variable "public_subnets" {
+  description = "A list of public subnet CIDR blocks"
+  type        = list(string)
+}
+
+variable "private_subnets" {
+  description = "A list of private subnet CIDR blocks"
   type        = list(string)
 }
 
@@ -16,5 +21,10 @@ variable "availability_zones" {
 variable "tags" {
   description = "A map of tags to assign to resources"
   type        = map(string)
+  default     = {}
+}
+
+variable "region" {
+  description = "Region"
   default     = {}
 }
